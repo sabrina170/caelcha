@@ -32,7 +32,8 @@
     <link rel="stylesheet" href="static/css/estilo.css">
     <link rel="stylesheet" href="static/css/toastr.min.css">
     <link rel="stylesheet" href="md/css/mdb.min.css" />
-    <meta name="author" content="Syahrizaldev"><link rel="stylesheet" href="nav/style.css">
+    <meta name="author" content="Syahrizaldev">
+    <link rel="stylesheet" href="nav/style.css">
 
 
 </head>
@@ -49,11 +50,67 @@
 
 
 <body>
+<header class="header">
+    <nav class="navbar" >
+      <div class="burger" id="burger">
+        <span class="burger-open " >
+        <i class="fas fa-bars fa-2x" style="color: white;"></i>
+        </span>
+        <span class="burger-close" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+          style="background-color: white;">
+            <path fill="#252a32" fill-rule="evenodd" d="M17.778.808l1.414 1.414L11.414 10l7.778 7.778-1.414 1.414L10 11.414l-7.778 7.778-1.414-1.414L8.586 10 .808 2.222 2.222.808 10 8.586 17.778.808z" />
+          </svg>
+        </span>
+        
+      </div>
+      <a class="navbar-brand" style="color: white;font-family: Audrey;">
+      <img
+        src="static/img/Cael.png"
+        height="50"
+        alt=""
+        
+        loading="lazy"
+      />
+      <p style="margin-top: 20px;">Tienda</p>
+    </a>
 
+      <ul class="menu" id="menu">
+      <a href="index.php" ><img src="static/img/Cael1.png" height="60px"></a>
+      <br>
+        <li class="menu-item"><a href="conocenos.php" class="menu-link">CONOCENOS</a></li>
+        <li class="menu-item"><a href="galeria.php" class="menu-link">GALERIA</a></li>
+        <li class="menu-item"><a href="tienda.php" class="menu-link">TIENDA</a></li>
+        <li class="menu-item"><a href="contactanos.php" class="menu-link">CONTACTANOS</a></li>
+        <br>
+        
+        <br><br><br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">
+          <a style="color: #212a40" href="#!" role="button">
+          <i class="fab fa-twitter fa-2x"></i></a>
+          <a style="color: #212a40" href="#!" role="button">
+          <i class="fab fa-facebook-f fa-2x"></i></a>
+          <a style="color: #212a40" href="#!" role="button">
+          <i class="fab fa-instagram fa-2x"></i></a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
 
+		</ul>
+   
+    
+	</nav>
+</header>
 
-
-<div class="container my-5 py-5">
+<br><br><br>
+<div class="container  py-5">
 
     <!--Section: Content-->
     <section class="text-center">
@@ -81,15 +138,20 @@
 
                             <!-- Card content -->
                             <div class="card-body">
-                                <p class="mb-1"><a href="" class="font-weight-bold black-text"><?php echo $producto['Nombre']; ?></a></p>
-                                <p class="card-text" style="text-align: center;">
+                                <p class="mb-1"><a href="" class="font-weight-bold black-text " style="font-family: Audrey;" ><?php echo $producto['Nombre']; ?></a></p>
+                                <p class="card-text font-weight-bold" style="text-align: center; font-family: Audrey; color: black ;font-size: 15px;" >
                                         <?php
                                             $desc = $producto['Descripcion'];
                                             echo str_replace("/", "<br>", $desc); ?> 
                                 </p>
-                                <p class="mb-1"><small class="mr-1"><s style="color: grey;">S/ 299.00</s></small><strong>S/ <?php echo $producto['Precio']; ?></strong></p>
-                                
-                                <button type="button" class="btn btn-black btn-sm px-3"  onClick='mostrarDetalles(<?php echo $producto['ID']; ?>)' style="border-radius: 20px;" data-toggle="modal" data-target="#modalQuickView">Detalles</button>
+                                <h5 class="mb-1" style="font-family: Audrey;">
+                                <small class="mr-1">
+                                <strong>S/ <?php echo $producto['Precio']; ?></strong> 
+                                </small>
+                                <a style="font-family: Audrey; text-decoration: line-through; color: grey; font-size: 15px;">S/ 299.00</a>
+                               </h5>
+                                <br>
+                                <button type="button" class="font-weight-bold" style="font-family: Audrey; color: black ;font-size: 15px;" onClick='mostrarDetalles(<?php echo $producto['ID']; ?>)' style="border-radius: 20px;" data-toggle="modal" data-target="#modalQuickView">Detalles</button>
 
                             </div>
 
@@ -113,10 +175,10 @@
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-body">
-                <h3 class="font-weight-bold mb-3 text-center">
+                <!-- <h3 class="font-weight-bold mb-3 text-center">
                     <img src="static/img/Cael1.png" width="140" height="40" class="d-inline-block align-top" alt="" loading="lazy"/>
-                </h3>
-                <hr/>
+                </h3> -->
+                <!-- <hr/> -->
                 <div class="row">
                   <div class="col-lg-7">
                     <!--Carousel Wrapper-->
@@ -140,28 +202,29 @@
                   <br>
                   <div class="col-lg-5">
                         <br>
-                      <h2 class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4" id="modalQuickView_nombre_producto"></h2>
-                      <span class="badge badge-danger product mb-4 ml-xl-0 ml-4">Oferta</span>
-                      <span class="badge badge-success product mb-4 ml-2">SALE</span>
+                      <h2 class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4" 
+                      id="modalQuickView_nombre_producto" style="font-family: Audrey;"></h2>
+                      <!-- <span class="badge badge-danger product mb-4 ml-xl-0 ml-4">Oferta</span>
+                      <span class="badge badge-success product mb-4 ml-2">SALE</span> -->
 
                       <h3 class="h3-responsive text-center text-md-left mb-5 ml-xl-0 ml-4">
                         <span class="black-text font-weight-bold">
-                          <strong id="modalQuickView_precio_producto">S/ - </strong>
+                          <strong id="modalQuickView_precio_producto" style="font-family: Audrey;">S/ - </strong>
                         </span>
                         <span class="grey-text">
                           <small>
-                            <s id="modalQuickView_precio_old_producto">S/ - </s>
+                            <s id="modalQuickView_precio_old_producto" style="font-family: Audrey;text-decoration: line-through;">S/ - </s>
                           </small>
                         </span>
                       </h3>
                   
                     <div class="font-weight-normal">
-                        <p class="ml-xl-0 ml-4" id="modalQuickView_descripcion_producto" style="text-align: center;"></p>
+                        <p class="ml-xl-0 ml-4" id="modalQuickView_descripcion_producto" style="text-align: center;font-family: Audrey;"></p>
                     </div>
                     <div class="card-body">
                       <div class="text-center">
                            <!-- Button trigger modal -->
-                          <button type="button" class="btn" style="background-color:  black;color: white; border-radius: 30px;" data-dismiss="modal" data-toggle="modal" data-target="#fullHeightModalRight">
+                          <button type="button" class="btn" style="background-color:  #162b5b; color: white; font-family: Audrey;" data-dismiss="modal" data-toggle="modal" data-target="#fullHeightModalRight">
                           Personaliza tu camisa
                           </button>
                       </div>
@@ -183,9 +246,9 @@
                 <div class="modal-dialog modal-full-height modal-right modal-dialog-scrollable" role="document">
 
                     <div class="modal-content">
-                        <div class="modal-header text-center" style="background-color: #212a40; color: white;">
-                            <h5  id="myModalLabel"><strong>MEDIDAS PERSONALES</strong></h5>
-                            <button type="button" class="close" data-dismiss="modal" style="color: white;" aria-label="Close">
+                        <div class="modal-header text-center" >
+                            <!-- <h5  id="myModalLabel"><strong>MEDIDAS PERSONALES</strong></h5> -->
+                            <button type="button" class="close" data-dismiss="modal" style="color: black;" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -193,16 +256,17 @@
 
                     <div class="text-center">
                         <img src="static/img/fenix.png"  width="100" height="100" alt="Responsive image" class="">
-                    </div>
+                        <h5  id="myModalLabel" style="font-family: Audrey; font-size: 30px;"><strong>Personaliza</strong></h5>
+              </div>
 
-                    <div class="modal-body" style="background-image: url(static/img/tapiz.png);">
+                    <div class="modal-body">
                         <!--contedino del formulario-->
                         <div class="d-flex justify-content-between">
                             <label for="exampleForm2">Altura: </label>
                             <small><span id="demo9"></span> cm.</small>
                         </div>
                         
-                        <input type="range" min="150" max="220" value="185" class="custom-range" id="myRange9">
+                        <input type="range" min="150" max="220" value="185" class="custom-range " id="myRange9" >
 
                         <div class="d-flex justify-content-between">
                             <label for="exampleForm2">Peso: </label>
@@ -228,9 +292,9 @@
                         <br/>
                         <br/>
                         
-                        <div class="text-center">
-                                <div class="form-check form-check">
-                                    <label for="exampleForm2" style="color:#212a40 ;"><strong>Talla de camisa de uso habitual:</strong></label>
+                        <div class="text-center" style="font-family: Audrey;">
+                                <div class="form-check form-check" style="font-family: Audrey;">
+                                    <label for="exampleForm2" style="color:#212a40 ; font-family: Audrey;"><strong>Talla de camisa de uso habitual:</strong></label>
                                 </div>
 
                                 <div class="form-check form-check-inline">
@@ -243,7 +307,7 @@
                                     <input class="checkbox" type="radio" name="rdo" value="L"> L </input>
                                 </div>
 
-                                <div class="form-check form-check">
+                                <div class="form-check form-check" >
                                     <label for="exampleForm2" style="color:#212a40 ;"><strong>¿Desea poner una inicial a la manga?</strong></label>
                                 </div>
                                 
@@ -273,7 +337,7 @@
                                 </div>
                                 
                                 <div class="modal-footer justify-content-center">
-                                    <button type="submit" id="fullHeightModalRight_button" class="btn" style="background-color:  black ;color: white; border-radius: 30px;" name="submit" data-dismiss="modal" data-toggle="modal" data-target="#customModalSizeShirt">ACEPTAR</button>
+                                    <button type="submit" id="fullHeightModalRight_button" class="btn" style="background-color:  #212a40 ;color: white; font-family: Audrey;" name="submit" data-dismiss="modal" data-toggle="modal" data-target="#customModalSizeShirt">Agregar al carrito</button>
                                 </div>
 
                         </div>
@@ -292,9 +356,9 @@
     <div class="modal fade bd-example-modal-xl" id="customModalSizeShirt" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl modal-dialog-scrollable">
        
-          <div class="modal-content " style="background-image: url(static/img/tapiz.png);">
-                <div class="modal-header text-center" style="background-color: #212a40; color: white;">
-                    <h5 class="modal-title" id="exampleModalPopoversLabel"><strong>PERSONALIZA TU CAMISA</strong></h5>
+          <div class="modal-content ">
+                <div class="modal-header text-center" style="background-color: #212a40; color: white; font-family: Audrey;">
+                    <h5 class="modal-title" id="exampleModalPopoversLabel"><strong>Personaliza tu camisa</strong></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white;">&times;</span>
                     </button>
@@ -309,11 +373,7 @@
                                     <br/>
                                     <div class="container_img_camisa" style="width: 100%" style="position: relative; text-align: center;">
                                         <img src="-" id="imgcamisa" class="img-thumbnail" style="width: 100%;">
-                                        
-                                        
-                                        
-                                        
-                                        
+                                         
                                         
                                     </div>
                                     
@@ -322,7 +382,7 @@
                                     <strong id="customModalSizeShirt_desc"></strong>
                                 </div>
                             </div>
-                            <div class="col-md-6"> 
+                            <div class="col-md-6" style="font-family: Audrey;"> 
                                 <br>
                                 <div>                  
                                     <div class="form-group">
@@ -383,9 +443,9 @@
 
                                         <input type="hidden" name="talla_general"   id="talla_general" value="">
 
-                                        <button class="btn btn_agregar_carrito" name="btnAccion" type="submit" value="Agregar" style="background-color:  black ;color: white; border-radius: 30px;">Agregar al carrito <i class="fas fa-cart-plus ml-2" aria-hidden="true"></i></button>
+                                        <button class="btn btn_agregar_carrito" name="btnAccion" type="submit" value="Agregar" style="background-color:  #212a40 ;color: white; font-family: Audrey;">Agregar al carrito <i class="fas fa-cart-plus ml-2" aria-hidden="true"></i></button>
                                     </form>
-                                    <button type="button" class="btn" data-dismiss="modal" style="border-radius: 20px;">No, Gracias</button>
+                                    <button type="button" class="btn" data-dismiss="modal" style="font-family: Audrey;">No, Gracias</button>
                                </div>
                           </div>
                         
